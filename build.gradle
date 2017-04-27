@@ -29,4 +29,8 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile 'org.springframework:spring-orm:4.2.5.RELEASE'
+    compile 'org.hibernate:hibernate-core:5.2.1.Final'
+    compile 'org.apache.tomcat:tomcat-dbcp:8.0.32'
+    compile 'com.h2database:h2:1.4.191'
 }
