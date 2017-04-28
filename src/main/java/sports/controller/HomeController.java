@@ -3,6 +3,7 @@ package sports.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 /**
  * The Controller executes functions corresponding to a specified request.
  * Created by Eddie on 4/16/17.
@@ -17,6 +18,4 @@ public class HomeController {
     @RequestMapping("/player")
     public String showPlayers() { return  "player";}
 
-    @RequestMapping("/team")
-    public  String showTeams() { return "team";}
 }
