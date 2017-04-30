@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/album.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+
+    <title>All Players</title>
+</head>
+<body>
+    <div class="collapse bg-inverse" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                </div>
+                <div class="col-sm-4 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                        <li><a href="#" class="text-white">Like on Facebook</a></li>
+                        <li><a href="#" class="text-white">Email me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand">Album</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Franchise Players List</h1>
+            <p class="lead text-muted">Choose one from the list of stars</p>
+            <p>
+                <a href=".." class="btn btn-primary">Home</a>
+                <a th:href="@{'/teams'}" class="btn btn-secondary">Team</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="album text-muted">
+        <div class="container">
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/anthony-davis.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Anthony-Davis}">Anthony Davis</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/andre-drummond.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Andre-Drummond}">Andre Drummond</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/buddy-hield.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Buddy-Hield}">Buddy Hield</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/carmelo-anthony.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Carmelo-Anthony}">Carmelo Anthony</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/chris-paul.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Chris-Paul}">Chris Paul</a></h4>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/damian-lillard.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Damian-Lillard}">Damian Lillard</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/dirk-nowitzki.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Dirk-Nowitzki}">Dirk Nowitzki</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/eric-bledsoe.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Eric-Bledsoe}">Eric Bledsoe</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/giannis-antetokounmpo.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Giannis-Antetokounmpo}">Giannis</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/gordon-hayward.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Gordon-HayWard}">Gordon Hayward</a></h4>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/hassan-whiteside.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Hassan-Whiteside}">Hassan Whiteside</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/isaiah-thomas.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Isaiah-Thomas}">Isaiah Thomas</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/james-harden.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/James-Harden}">James Harden</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/jeremy-lin.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Jeremy-Lin}">Jeremy Lin</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/jimmy-butler.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Jimmy-Butler}">Jimmy Butler</a></h4>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/joel-embiid.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Joel-Embiid}">Joel Embiid</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/john-wall.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/John-Wall}">John Wall</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/jordan-clarkson.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Jordan-Clarkson}">Jordan Clarkson</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/karl-anthony-towns.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Karl-Anthony-Towns}">Karl-Anthony Towns</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/kawhi-leonard.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Kawhi-Leonard}">Kawhi Leonard</a></h4>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/kemba-walker.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Kemba-Walker}">Kemba Walker</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/kyle-lowry.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Kyle-Lowry}">Kyle Lowry</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/lebron-james.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Lebron-James}">Lebron James</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/marc-gasol.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Marc-Gasol}">Marc Gasol</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/nikola-jokic.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Nicola-Jokic}">Nikola Jokic</a></h4>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img th:src="@{'/players/nikola-vucevic.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title" ><a th:href="@{/Nikola-Vucevic}">Nikola Vucevic</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/paul-george.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Paul-George}">Paul George</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/paul-millsap.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Paul-Millsap}">Paul Millsap</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/russell-westbrook.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Russell-Westbrook}">Russell Westbrook</a></h4>
+                </div>
+                <div class="card">
+                    <img th:src="@{'/players/stephen-curry.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <h4 class="card-title"><a th:href="@{/Stephen-Curry}">Stephen Curry</a></h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+      });
+    </script>
+</body>
+</html>
