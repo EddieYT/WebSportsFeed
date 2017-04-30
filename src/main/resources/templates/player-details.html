@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Player's name</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+    <title th:text="${player.name}">Player's name</title>
 </head>
 <body>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" th:src="@{'players/' + ${player.name} + '.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <div class="card-block">
+                        <h4 class="card-title" th:text="${player.name}">Card title</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Position: SG</li>
+                        <li class="list-group-item">Height: 6' 5"</li>
+                        <li class="list-group-item" th:text="'Team: ' + ${player.team}">Pelicans</li>
+                    </ul>
+                    <div class="card-block">
+                        <a href=".." class="card-link">Home</a>
+                        <a href="#" class="card-link">Team</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <table class="table table-striped" align="center">
+                    <thead>
+                    <tr>
+                        <th>Points</th>
+                        <th>Rebounds</th>
+                        <th>Assists</th>
+                        <th>Steals</th>
+                        <th>Blocks</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${player.avgPoint}">test</td>
+                        <td th:text="${player.avgRebound}">test</td>
+                        <td th:text="${player.avgAssist}">test</td>
+                        <td th:text="${player.avgSteal}">test</td>
+                        <td th:text="${player.avgBlock}">test</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 </html>

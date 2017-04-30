@@ -17,10 +17,14 @@ public class PlayerController {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @RequestMapping("/player/{name}")
+    @RequestMapping("/{name}")
     public String playerDetails(@PathVariable String name, ModelMap modelMap) {
         Player player = playerRepository.findByName(name);
-        // TODO something to update the player's statistics
+        player.setAvgAssist(PlayerStatsParser.getPLayerAstPerGame(player));
+        player.setAvgBlock(PlayerStatsParser.getPLayerBlkPerGame(player));
+        player.setAvgPoint(PlayerStatsParser.getPLayerPtsPerGame(player));
+        player.setAvgRebound(PlayerStatsParser.getPLayerRebPerGame(player));
+        player.setAvgSteal(PlayerStatsParser.getPLayerStlPerGame(player));
         modelMap.put("player", player);
         return "player-details";
     }
