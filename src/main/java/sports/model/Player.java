@@ -11,10 +11,46 @@ public class Player {
     private String avgSteal;
     private String avgBlock;
     private String avgAssist;
+    private String position;
+    private String height;
+    private String weight;
 
     public Player(String name, String team) {
         this.name = name;
         this.team = team;
+    }
+
+    public Player(String name) {
+        this.name = name;
+    }
+
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public String getName() { return name; }

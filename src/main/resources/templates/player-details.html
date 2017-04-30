@@ -10,18 +10,19 @@
         <div class="row">
             <div class="col-4">
                 <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" th:src="@{'players/' + ${player.name} + '.png'}" alt="Card image cap" style="width:70%;height:70%"/>
+                    <img class="card-img-top" th:src="@{'/players/' + ${player.name} + '.png'}" alt="Card image cap" style="width:70%;height:70%"/>
                     <div class="card-block">
                         <h4 class="card-title" th:text="${player.name}">Card title</h4>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Position: SG</li>
-                        <li class="list-group-item">Height: 6' 5"</li>
+                        <li class="list-group-item" th:text="'Position: ' + ${player.position}">Position: SG</li>
+                        <li class="list-group-item" th:text="'Height: ' + ${player.height}">Height: 6' 5"</li>
+                        <li class="list-group-item" th:text="'Weight: ' + ${player.weight}">Weight: 220</li>
                         <li class="list-group-item" th:text="'Team: ' + ${player.team}">Pelicans</li>
                     </ul>
                     <div class="card-block">
                         <a href=".." class="card-link">Home</a>
-                        <a href="#" class="card-link">Team</a>
+                        <a href="../teams" class="card-link">Team</a>
                     </div>
                 </div>
             </div>
