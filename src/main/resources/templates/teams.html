@@ -49,8 +49,9 @@
         <h1 class="jumbotron-heading">NBA Teams</h1>
         <p class="lead text-muted">Select your favorite NBA team and track their current stats.</p>
         <p>
-          <a href="#" class="btn btn-primary">Home</a>
-          <a href="#" class="btn btn-secondary">Players</a>
+          <a th:href="@{'/home'}" class="btn btn-primary">Home</a>
+          <a th:href="@{'/player'}" class="btn btn-secondary">Players</a>
+          <a th:href="@{'/standings'}" class="btn btn-secondary">Standings</a>
         </p>
       </div>
     </section>
@@ -61,7 +62,7 @@
         <div class="row">
           <div th:each="team : ${teams}" class="card">
             <img th:src="@{'/logos/' + ${team.name} + '.jpg'}"/>
-            <p class="card-text"><a th:href="@{'/teams/' + ${team.name}}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</a></p>
+            <a th:href="@{'/teams/' + ${team.name}}"><p class="card-text" th:text="${team.name}">Team Name </p></a>
           </div>
         </div>
       </div>

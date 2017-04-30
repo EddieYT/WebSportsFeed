@@ -26,6 +26,11 @@ public class TeamController {
         return "teams";
     }
 
+    @RequestMapping("/team_schedule")
+    public String showTeamSchedule(ModelMap modelMap){
+        return "team_schedule";
+    }
+
     @RequestMapping("/teams/{name}")
     public String teamDetails(@PathVariable String name, ModelMap modelMap) {
         Team team = teamRepository.findByName(name);
