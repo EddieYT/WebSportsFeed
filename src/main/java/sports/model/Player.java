@@ -11,10 +11,23 @@ public class Player {
     private double avgSteal;
     private double avgBlock;
     private double avgAssist;
+    private double impact;
+    private final double pointsFactor;
+    private final double assistsFactor;
+    private final double reboundsFactor;
+    private final double stealsFactor;
+    private final double blocksFactor;
+
 
     public Player(String name, String team) {
         this.name = name;
         this.team = team;
+        impact = 0;
+        pointsFactor = 10;
+        assistsFactor = 7;
+        reboundsFactor = 5;
+        stealsFactor = 2;
+        blocksFactor = 2;
     }
 
     public String getName() {
@@ -49,11 +62,11 @@ public class Player {
         this.avgSteal = avgSteal;
     }
 
-    public double getAvgBlcok() {
+    public double getAvgBlock() {
         return avgBlock;
     }
 
-    public void setAvgBlcok(double avgBlcok) {
+    public void setAvgBlock(double avgBlcok) {
         this.avgBlock = avgBlcok;
     }
 
@@ -63,5 +76,15 @@ public class Player {
 
     public void setAvgAssist(double avgAssist) {
         this.avgAssist = avgAssist;
+    }
+
+    public double getImpact(){
+        return impact;
+    }
+
+    public void setImpact(){
+        impact = getAvgPoint()*pointsFactor + getAvgAssist()*assistsFactor +
+                 getAvgRebound()*reboundsFactor + getAvgSteal()*stealsFactor +
+                 getAvgBlock()*blocksFactor;
     }
 }
