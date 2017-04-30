@@ -6,17 +6,20 @@ package sports.model;
 public class Player {
     private String name;
     private String team;
-    private double avgPoint;
-    private double avgRebound;
-    private double avgSteal;
-    private double avgBlock;
-    private double avgAssist;
+    private String avgPoint;
+    private String avgRebound;
+    private String avgSteal;
+    private String avgBlock;
+    private String avgAssist;
+    private String position;
+    private String height;
+    private String weight;
     private double impact;
-    private final double pointsFactor;
-    private final double assistsFactor;
-    private final double reboundsFactor;
-    private final double stealsFactor;
-    private final double blocksFactor;
+    private double pointsFactor;
+    private double assistsFactor;
+    private double reboundsFactor;
+    private double stealsFactor;
+    private double blocksFactor;
 
 
     public Player(String name, String team) {
@@ -30,51 +33,82 @@ public class Player {
         blocksFactor = 2;
     }
 
-    public String getName() {
-        return name;
+    public Player(String name) {
+        this.name = name;
     }
+
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getName() { return name; }
 
     public String getTeam() {
         return team;
     }
 
-    public double getAvgPoint() {
+    public String getAvgPoint() {
         return avgPoint;
     }
 
-    public void setAvgPoint(double avgPoint) {
+    public void setAvgPoint(String avgPoint) {
         this.avgPoint = avgPoint;
     }
 
-    public double getAvgRebound() {
-        return avgRebound;
-    }
-
-    public void setAvgRebound(double avgRebound) {
-        this.avgRebound = avgRebound;
-    }
-
-    public double getAvgSteal() {
-        return avgSteal;
-    }
-
-    public void setAvgSteal(double avgSteal) {
-        this.avgSteal = avgSteal;
-    }
-
-    public double getAvgBlock() {
+    public String getAvgBlock() {
         return avgBlock;
     }
 
-    public void setAvgBlock(double avgBlcok) {
-        this.avgBlock = avgBlcok;
+    public void setAvgBlock(String avgBlock) {
+        this.avgBlock = avgBlock;
     }
 
-    public double getAvgAssist() {
+    public String getAvgRebound() {
+        return avgRebound;
+    }
+
+    public void setAvgRebound(String avgRebound) {
+        this.avgRebound = avgRebound;
+    }
+
+    public String getAvgSteal() {
+        return avgSteal;
+    }
+
+    public void setAvgSteal(String avgSteal) {
+        this.avgSteal = avgSteal;
+    }
+
+    public String getAvgAssist() {
         return avgAssist;
     }
 
-    public void setAvgAssist(double avgAssist) {
+    public void setAvgAssist(String avgAssist) {
         this.avgAssist = avgAssist;
     }
 
@@ -83,8 +117,10 @@ public class Player {
     }
 
     public void setImpact(){
-        impact = getAvgPoint()*pointsFactor + getAvgAssist()*assistsFactor +
-                 getAvgRebound()*reboundsFactor + getAvgSteal()*stealsFactor +
-                 getAvgBlock()*blocksFactor;
+        impact = Double.parseDouble(getAvgPoint())*pointsFactor +
+                 Double.parseDouble(getAvgAssist())*assistsFactor +
+                 Double.parseDouble(getAvgRebound())*reboundsFactor +
+                 Double.parseDouble(getAvgSteal())*stealsFactor +
+                 Double.parseDouble(getAvgBlock())*blocksFactor;
     }
 }

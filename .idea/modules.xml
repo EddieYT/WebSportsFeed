@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSportsFeed.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSportsFeed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSportsFeed_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSportsFeed_main.iml" group="WebSportsFeed" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WebSportsFeed_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WebSportsFeed_test.iml" group="WebSportsFeed" />
     </modules>
   </component>
 </project>

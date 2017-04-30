@@ -6,7 +6,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sports.data.PlayerRepository;
+import sports.data.TeamRepository;
 import sports.model.Player;
+import sports.model.PlayerStatsParser;
 
 /**
  * The PlayerController can gather information for a specified player page request.
@@ -17,10 +19,21 @@ public class PlayerController {
     @Autowired
     private PlayerRepository playerRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     @RequestMapping("/player/{name}")
     public String playerDetails(@PathVariable String name, ModelMap modelMap) {
         Player player = playerRepository.findByName(name);
-        // TODO something to update the player's statistics
+        player.setAvgAssist(PlayerStatsParser.getPLayerAstPerGame(player));
+        player.setAvgBlock(PlayerStatsParser.getPLayerBlkPerGame(player));
+        player.setAvgPoint(PlayerStatsParser.getPLayerPtsPerGame(player));
+        player.setAvgRebound(PlayerStatsParser.getPLayerRebPerGame(player));
+        player.setAvgSteal(PlayerStatsParser.getPLayerStlPerGame(player));
+        player.setHeight(PlayerStatsParser.getPlayerHeight(player));
+        player.setWeight(PlayerStatsParser.getPlayerWeight(player));
+        player.setPosition(PlayerStatsParser.getPlayerPosition(player));
+        player.setTeam(PlayerStatsParser.getPlayerTeam(player));
         modelMap.put("player", player);
         return "player-details";
     }

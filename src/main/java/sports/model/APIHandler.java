@@ -1,4 +1,4 @@
-package sports.controller;
+package sports.model;
 
 
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -16,6 +16,10 @@ import java.net.URL;
 public class APIHandler {
     private static StringBuilder json;
 
+    /**
+     * Helper function for making a request and receiving a response according to the pullURL.
+     * @param pullURL the URL for making a request
+     */
     private static void HTTPAuth(String pullURL) {
         try {
             URL url = new URL (pullURL);
@@ -31,13 +35,12 @@ public class APIHandler {
             connection.setRequestMethod("GET");
             connection.setDoOutput(true);
             connection.setRequestProperty  ("Authorization", "Basic " + encoding);
-            InputStream content = (InputStream)connection.getInputStream();
+            InputStream content = connection.getInputStream();
             BufferedReader in   =
                     new BufferedReader (new InputStreamReader(content));
             String line;
             json = new StringBuilder();
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
                 json.append(line);
             }
         } catch(Exception e) {
@@ -45,6 +48,11 @@ public class APIHandler {
         }
     }
 
+    /**
+     * Gets a string response of JSON format according to the pullURL.
+     * @param pullURL the URL for making a request
+     * @return a String in JSON format
+     */
     public static String getJSONResponse(String pullURL) {
         APIHandler.HTTPAuth(pullURL);
         return APIHandler.json.toString();

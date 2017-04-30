@@ -2,6 +2,11 @@ package sports.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import sports.model.LeagueStats;
+import sports.model.Player;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -21,6 +26,16 @@ public class HomeController {
     }
 
     @RequestMapping("/player")
-    public String showPlayers() { return  "player";}
+    public String showPlayers() throws IOException {
+        LeagueStats stats = new LeagueStats();
+        ArrayList<Player> topImpactPlayers = stats.getTopImpactPlayers(30);
+
+        for(Player player : topImpactPlayers){
+            System.out.println(player.getName());
+        }
+
+        return  "player";
+
+    }
 
 }

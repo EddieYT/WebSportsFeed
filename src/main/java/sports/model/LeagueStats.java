@@ -39,11 +39,11 @@ public class LeagueStats {
             String team = str[15] + " " + str[16];
             String name = str[3] + " " + str[2];
             Player player = new Player(name, team);
-            player.setAvgPoint(Double.parseDouble(str[47]));
-            player.setAvgAssist(Double.parseDouble(str[45]));
-            player.setAvgRebound(Double.parseDouble(str[43]));
-            player.setAvgBlock(Double.parseDouble(str[53]));
-            player.setAvgSteal(Double.parseDouble(str[51]));
+            player.setAvgPoint(str[47]);
+            player.setAvgAssist(str[45]);
+            player.setAvgRebound(str[43]);
+            player.setAvgBlock(str[53]);
+            player.setAvgSteal(str[51]);
 
             // calculate player impact metric
             player.setImpact();
@@ -73,7 +73,6 @@ public class LeagueStats {
         }
 
         ArrayList<Player> topImpactPlayers = new ArrayList<>();
-
         for(int i = 0; i < n; i++){
             topImpactPlayers.add(playerStats.get(i));
         }
