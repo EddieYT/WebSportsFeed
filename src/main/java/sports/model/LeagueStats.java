@@ -27,6 +27,10 @@ public class LeagueStats {
         statsGenerator();
     }
 
+    public Player[] getAllPlayerStats() {
+        return playerStats.toArray(new Player[playerStats.size()]);
+    }
+
     /**
      * This method will parse a player's stats and the player to aggregate list
      * of all players in the league.

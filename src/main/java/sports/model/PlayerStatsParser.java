@@ -15,7 +15,7 @@ public class PlayerStatsParser {
     private  static  String response = null;
 
     public static String getPLayerStlPerGame(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
 
         response = APIHandler.getJSONResponse(String.format(requestStats, name));
         String output = PlayerStatsParser.parseToStats("StlPerGame", response);
@@ -23,28 +23,28 @@ public class PlayerStatsParser {
     }
 
     public static String getPLayerRebPerGame(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestStats, name));
         String output = PlayerStatsParser.parseToStats("RebPerGame", response);
         return output;
     }
 
     public static String getPLayerAstPerGame(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestStats, name));
         String output = PlayerStatsParser.parseToStats("AstPerGame", response);
         return output;
     }
 
     public static String getPLayerBlkPerGame(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestStats, name));
         String output = PlayerStatsParser.parseToStats("BlkPerGame", response);
         return output;
     }
 
     public static String getPLayerPtsPerGame(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestStats, name));
         String output = PlayerStatsParser.parseToStats("PtsPerGame", response);
         return output;
@@ -63,7 +63,7 @@ public class PlayerStatsParser {
     }
 
     public static String getPlayerTeam(Player player) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestInfo, name));
         String output = PlayerStatsParser.parseToPlayerTeam(response);
         return output;
@@ -118,7 +118,7 @@ public class PlayerStatsParser {
      * @return the corresponding info
      */
     private static String getPlayerInfo(Player player, String info) {
-        name = player.getName().toLowerCase();
+        name = player.getUrlName().toLowerCase();
         response = APIHandler.getJSONResponse(String.format(requestInfo, name));
         String output = PlayerStatsParser.parseToProfile(info, response);
         return output;
