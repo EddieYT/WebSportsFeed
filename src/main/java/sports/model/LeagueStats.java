@@ -54,6 +54,10 @@ public class LeagueStats {
         }
     }
 
+    public Player[] getAllPlayerStats(){
+        return (Player[]) playerStats.toArray();
+    }
+
     /**
      * Return a list of the top n impact players.
      * @param n, size of the list.
