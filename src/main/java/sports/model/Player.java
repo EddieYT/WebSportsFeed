@@ -1,10 +1,14 @@
 package sports.model;
 
+import java.util.Comparator;
+
 /**
  * Created by Eddie on 4/26/17.
  */
 public class Player {
     private String name;
+    private String imageName;
+    private String urlName;
     private String team;
     private String avgPoint;
     private String avgRebound;
@@ -25,6 +29,8 @@ public class Player {
     public Player(String name, String team) {
         this.name = name;
         this.team = team;
+        setImageName();
+        setUrlName();
         impact = 0;
         pointsFactor = 10;
         assistsFactor = 7;
@@ -41,6 +47,7 @@ public class Player {
     public void setTeam(String team) {
         this.team = team;
     }
+
 
     public String getPosition() {
         return position;
@@ -66,7 +73,47 @@ public class Player {
         this.weight = weight;
     }
 
-    public String getName() { return name; }
+    public String getName() { return this.name; }
+
+    public String getImageName(){
+        return this.imageName;
+    }
+
+    public void setImageName(){
+        String[] splitName;
+
+        if(this.name.contains("-")){
+            this.imageName = new String(this.name);
+            this.imageName = this.imageName.toLowerCase();
+        }
+        else if(this.name.contains(" ")){
+            splitName = this.name.split(" ");
+            this.imageName = splitName[0] + "-" + splitName[1];
+            this.imageName = this.imageName.toLowerCase();
+        }
+        else{
+            this.imageName = "";
+        }
+    }
+
+    public String getUrlName(){
+        return this.urlName;
+    }
+
+    public void setUrlName(){
+        String[] splitName;
+
+        if(this.name.contains("-")){
+            this.urlName = new String(this.name);
+        }
+        else if(this.name.contains(" ")){
+            splitName = this.name.split(" ");
+            this.urlName = splitName[0] + "-" + splitName[1];
+        }
+        else{
+            this.urlName = "";
+        }
+    }
 
     public String getTeam() {
         return team;
@@ -123,4 +170,5 @@ public class Player {
                  Double.parseDouble(getAvgSteal())*stealsFactor +
                  Double.parseDouble(getAvgBlock())*blocksFactor;
     }
+
 }

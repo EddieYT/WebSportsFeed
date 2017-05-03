@@ -1,8 +1,11 @@
 package sports.model;
 
+import javafx.scene.layout.Priority;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.PriorityQueue;
 
 /**
  * Created by obinnaasinugo on 4/30/17.
@@ -12,17 +15,16 @@ public class LeagueStats {
     private FileReaderv3 cumu;
     private String teamName;
     private ArrayList<String> lines;
-    private ArrayList<Player> playerStats;
-    boolean sorted;
+    private PriorityQueue<Player> playerStats;
 
     public LeagueStats() throws IOException {
         dl = new FileDownloader("src/main/resources/");
         dl.cumulativePlayers();
         cumu = new FileReaderv3("src/main/resources/cumulative_player_stats.csv");
         lines = cumu.getLines();
-        playerStats = new ArrayList<>();
+        ComparePlayerImpact comparePlayerImpact = new ComparePlayerImpact();
+        playerStats = new PriorityQueue<Player>(comparePlayerImpact);
         statsGenerator();
-        sorted = false;
     }
 
     /**
@@ -53,28 +55,15 @@ public class LeagueStats {
     }
 
     /**
-     * Sort players based on their impacts.
-     * @param players .
-     */
-    public void sort(ArrayList<Player> players){
-        ComparePlayerImpact compare = new ComparePlayerImpact();
-        Collections.sort(players,compare);
-    }
-
-    /**
      * Return a list of the top n impact players.
      * @param n, size of the list.
      * @return list of the top n impact players.
      */
     public ArrayList<Player> getTopImpactPlayers(int n){
-        if(!sorted){
-            sort(playerStats);
-            sorted = true;
-        }
 
         ArrayList<Player> topImpactPlayers = new ArrayList<>();
         for(int i = 0; i < n; i++){
-            topImpactPlayers.add(playerStats.get(i));
+            topImpactPlayers.add(playerStats.remove());
         }
 
         return topImpactPlayers;
