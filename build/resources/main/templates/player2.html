@@ -52,7 +52,7 @@
             <div class="card-group" th:each="i : ${#numbers.sequence(0, 5)}">
                 <div class="card" th:each="j : ${#numbers.sequence(0, 4)}">
                     <img th:src="@{'/players/'+ ${impactPlayers[i][j].imageName} + '.png'}" alt="Card image cap" style="width:70%;height:70%"/>
-                    <h4 class="card-title" th:text="${impactPlayers[i][j].name}"><a th:href="@{'/player/'+ ${impactPlayers[i][j].urlName}}"> Player </a></h4>
+                    <a th:href="@{'/player/'+ ${impactPlayers[i][j].urlName}}"><h4 class="card-title" th:text="${impactPlayers[i][j].name}"> Player </h4></a>
                 </div>
             </div>
 

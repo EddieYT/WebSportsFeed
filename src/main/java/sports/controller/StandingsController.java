@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sports.model.Record;
-import sports.model.TeamStandings;
+import sports.model.NbaStandings;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class StandingsController {
 
     @RequestMapping("/standings")
     public String displayStandings(ModelMap modelMap) throws IOException {
-        TeamStandings standings = new TeamStandings();
+        NbaStandings standings = new NbaStandings();
         List<Record> records = standings.getLeagueStandings();
         modelMap.put("records", records);
 

@@ -15,7 +15,7 @@ public class LeagueStats {
     private FileReaderv3 cumu;
     private String teamName;
     private ArrayList<String> lines;
-    private PriorityQueue<Player> playerStats;
+    private PriorityQueue<NbaPlayer> playerStats;
 
     public LeagueStats() throws IOException {
         dl = new FileDownloader("src/main/resources/");
@@ -23,12 +23,8 @@ public class LeagueStats {
         cumu = new FileReaderv3("src/main/resources/cumulative_player_stats.csv");
         lines = cumu.getLines();
         ComparePlayerImpact comparePlayerImpact = new ComparePlayerImpact();
-        playerStats = new PriorityQueue<Player>(comparePlayerImpact);
+        playerStats = new PriorityQueue<NbaPlayer>(comparePlayerImpact);
         statsGenerator();
-    }
-
-    public Player[] getAllPlayerStats() {
-        return playerStats.toArray(new Player[playerStats.size()]);
     }
 
     /**
@@ -42,14 +38,29 @@ public class LeagueStats {
                 continue;
             }
 
-            String team = str[15] + " " + str[16];
-            String name = str[3] + " " + str[2];
-            Player player = new Player(name, team);
-            player.setAvgPoint(str[47]);
-            player.setAvgAssist(str[45]);
-            player.setAvgRebound(str[43]);
-            player.setAvgBlock(str[53]);
-            player.setAvgSteal(str[51]);
+            NbaPlayer player;
+            if(str.length == 82) {
+                String team = str[16] + " " + str[17];
+                String name = str[3] + " " + str[2];
+                player = new NbaPlayer(name, team);
+                player.setAvgPoint(str[48]);
+                player.setAvgAssist(str[46]);
+                player.setAvgRebound(str[44]);
+                player.setAvgBlock(str[54]);
+                player.setAvgSteal(str[52]);
+            }
+            else{
+                String team = str[15] + " " + str[16];
+                String name = str[3] + " " + str[2];
+                player = new NbaPlayer(name, team);
+                player.setAvgPoint(str[47]);
+                player.setAvgAssist(str[45]);
+                player.setAvgRebound(str[43]);
+                player.setAvgBlock(str[53]);
+                player.setAvgSteal(str[51]);
+            }
+
+
 
             // calculate player impact metric
             player.setImpact();
@@ -58,8 +69,8 @@ public class LeagueStats {
         }
     }
 
-    public Player[] getAllPlayerStats(){
-        return (Player[]) playerStats.toArray();
+    public NbaPlayer[] getAllPlayerStats(){
+        return playerStats.toArray(new NbaPlayer[playerStats.size()]);
     }
 
     /**
@@ -67,9 +78,9 @@ public class LeagueStats {
      * @param n, size of the list.
      * @return list of the top n impact players.
      */
-    public ArrayList<Player> getTopImpactPlayers(int n){
+    public ArrayList<NbaPlayer> getTopImpactPlayers(int n){
 
-        ArrayList<Player> topImpactPlayers = new ArrayList<>();
+        ArrayList<NbaPlayer> topImpactPlayers = new ArrayList<>();
         for(int i = 0; i < n; i++){
             topImpactPlayers.add(playerStats.remove());
         }

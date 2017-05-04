@@ -111,9 +111,9 @@ public class FullGameSchedule {
 		ArrayList<Game> season = new ArrayList<>();
 		for (String[] match : allGames){
 			if(match[6].equals(team))
-				season.add(new Game(match[10], match[1], match[2], match[11]));
+				season.add(new NbaGame(match[10], match[1], match[2], match[11]));
 			else
-				season.add(new Game(match[6], match[1], match[2], match[11]));
+				season.add(new NbaGame(match[6], match[1], match[2], match[11]));
 		}
 		return season;
 	}

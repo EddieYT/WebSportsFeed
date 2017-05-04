@@ -12,8 +12,8 @@ public class ComparePlayerImpact implements Comparator<Object> {
      */
     @Override
     public int compare(Object o1, Object o2) {
-        Player p1 = (Player) o1;
-        Player p2 = (Player) o2;
+        NbaPlayer p1 = (NbaPlayer) o1;
+        NbaPlayer p2 = (NbaPlayer) o2;
 
         return -1*Double.compare(p1.getImpact(), p2.getImpact());
     }

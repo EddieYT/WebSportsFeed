@@ -14,7 +14,7 @@ import java.util.HashMap;
  * @author ?
  *
  */
-public class TeamStandings {
+public class NbaStandings implements Standings{
 
 	private FileReaderv3 teamStandings;
 	private HashMap<String, String[]> teamStatsMap;
@@ -25,7 +25,7 @@ public class TeamStandings {
 	 * @throws MalformedURLException 
 	 *
 	 */
-	public TeamStandings() throws MalformedURLException, IOException{
+	public NbaStandings() throws MalformedURLException, IOException{
 		fd = new FileDownloader("src/main/resources/");
 		fd.allStandings();
 		teamStandings = new FileReaderv3("src/main/resources/overall_team_standings.csv");
@@ -98,7 +98,7 @@ public class TeamStandings {
 		ArrayList<Record> leagueStandings = new ArrayList<>();
 
 		for(int i=0; i< rankings.length; i++){
-			leagueStandings.add(new Record(parseRankingInfo(rankings[i])));
+			leagueStandings.add(new NbaRecord(parseRankingInfo(rankings[i])));
 		}
 
 		return leagueStandings;

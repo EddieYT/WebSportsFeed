@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import sports.data.PlayerRepository;
+import sports.data.NbaPlayerRepository;
 import sports.data.TeamRepository;
 import sports.model.*;
 
@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 public class SearchController {
     @Autowired
-    private PlayerRepository playerRepository;
+    private NbaPlayerRepository playerRepository;
 
     @Autowired
     private TeamRepository teamRepository;
@@ -33,13 +33,13 @@ public class SearchController {
         }
         if (name.equals("player")) { return "player"; }
         if (name.equals("standings")) {
-            TeamStandings standings = new TeamStandings();
+            NbaStandings standings = new NbaStandings();
             List<Record> records = standings.getLeagueStandings();
             modelMap.put("records", records);
             return "standings";
         }
 
-        Player player = playerRepository.findByName(name);
+        NbaPlayer player = playerRepository.findByName(name);
         Team team = teamRepository.findByName(name);
 
         if (team != null) {
@@ -94,7 +94,7 @@ public class SearchController {
             modelMap.put("player", player);
             return "player-details";
         } else {
-            player = new Player(name);
+            player = new NbaPlayer(name);
             try {
                 player.setAvgAssist(PlayerStatsParser.getPLayerAstPerGame(player));
                 player.setAvgBlock(PlayerStatsParser.getPLayerBlkPerGame(player));

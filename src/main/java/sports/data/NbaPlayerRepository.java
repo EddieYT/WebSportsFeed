@@ -2,28 +2,26 @@ package sports.data;
 
 import org.springframework.stereotype.Component;
 import sports.model.LeagueStats;
-import sports.model.Player;
+import sports.model.NbaPlayer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
 /**
  * Created by Eddie on 4/26/17.
  */
 @Component
-public class PlayerRepository {
-    private final List<Player> ALL_PLAYERS;
+public class NbaPlayerRepository {
+    private final List<NbaPlayer> ALL_PLAYERS;
 
-    public PlayerRepository() throws IOException {
-        ALL_PLAYERS = new ArrayList<Player>(Arrays.asList(new LeagueStats().getAllPlayerStats()));
+    public NbaPlayerRepository() throws IOException {
+        ALL_PLAYERS = new ArrayList<NbaPlayer>(Arrays.asList(new LeagueStats().getAllPlayerStats()));
     }
 
-    public Player findByName(String name) {
-        for (Player player: ALL_PLAYERS) {
+    public NbaPlayer findByName(String name) {
+        for (NbaPlayer player: ALL_PLAYERS) {
             if (player.getName().equalsIgnoreCase(name)) {
                 return player;
             }
@@ -31,7 +29,7 @@ public class PlayerRepository {
         return null;
     }
 
-    public List<Player> getAllPlayers() {
+    public List<NbaPlayer> getAllPlayers() {
         return  ALL_PLAYERS;
     }
 }

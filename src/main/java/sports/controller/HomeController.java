@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sports.model.LeagueStats;
-import sports.model.Player;
+import sports.model.NbaPlayer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,10 +29,11 @@ public class HomeController {
     @RequestMapping("/player")
     public String showImplactPlayers(ModelMap modelMap) throws IOException {
         LeagueStats stats = new LeagueStats();
-        ArrayList<Player> topImpactPlayers = stats.getTopImpactPlayers(30);
+        ArrayList<NbaPlayer> topImpactPlayers = stats.getTopImpactPlayers(30);
 
-        for(Player player : topImpactPlayers){
+        for(NbaPlayer player : topImpactPlayers){
             System.out.println("name: " + player.getName());
+            System.out.println("team: " + player.getTeam());
             System.out.println("img name: " + player.getImageName());
             System.out.println("url name: " + player.getUrlName());
             System.out.println("points: " + player.getAvgPoint());
@@ -50,7 +51,7 @@ public class HomeController {
             temp[i] = i;
         }
 
-        Player[][] topPlayers = new Player[6][5];
+        NbaPlayer[][] topPlayers = new NbaPlayer[6][5];
         int counter = 0;
 
         for(int row = 0; row < 6; row++){

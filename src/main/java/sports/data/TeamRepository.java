@@ -14,8 +14,7 @@ import static java.util.Arrays.asList;
 public class TeamRepository {
     private static final List<Team> ALL_TEAMS = asList(
             new Team("76ers"),
-            new Team("Blazers"),
-            new Team("Bobcats"),
+            new Team("Trail Blazers"),
             new Team("Bucks"),
             new Team("Bulls"),
             new Team("Cavaliers"),
