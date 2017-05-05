@@ -3,6 +3,7 @@ package sports.model;
 import java.util.Comparator;
 
 /**
+ * This class stores all information pertaining to a player.
  * Created by Eddie on 4/26/17.
  */
 public class NbaPlayer implements Player{
@@ -19,30 +20,29 @@ public class NbaPlayer implements Player{
     private String height;
     private String weight;
     private double impact;
-    private double pointsFactor;
-    private double assistsFactor;
-    private double reboundsFactor;
-    private double stealsFactor;
-    private double blocksFactor;
+    private ImpactMatrix impactMatrix;
 
-
-    public NbaPlayer(String name, String team) {
+    /**
+     * Constructor for NbaPlayer
+     * @param name the name of the player
+     * @param team the team this player belongs
+     * @param impactMatrix the impactMatrix for evaluating a player
+     */
+    public NbaPlayer(String name, String team, ImpactMatrix impactMatrix) {
         this.name = name;
         this.team = team;
         setImageName();
         setUrlName();
-        impact = 0;
-        pointsFactor = 10;
-        assistsFactor = 7;
-        reboundsFactor = 5;
-        stealsFactor = 2;
-        blocksFactor = 2;
+        this.impactMatrix = impactMatrix;
     }
 
+    /**
+     * Gets the player's name.
+     * @param name the name of the player
+     */
     public NbaPlayer(String name) {
         this.name = name;
     }
-
 
     public void setTeam(String team) {
         this.team = team;
@@ -86,11 +86,7 @@ public class NbaPlayer implements Player{
     public void setImageName(){
         String[] splitName;
 
-        if(this.name.contains("-")){
-            this.imageName = new String(this.name);
-            this.imageName = this.imageName.toLowerCase();
-        }
-        else if(this.name.contains(" ")){
+        if(this.name.contains(" ")){
             splitName = this.name.split(" ");
             this.imageName = splitName[0] + "-" + splitName[1];
             this.imageName = this.imageName.toLowerCase();
@@ -106,12 +102,9 @@ public class NbaPlayer implements Player{
 
     public void setUrlName(){
         String[] splitName;
-
-        if(this.name.contains("-")){
-            this.urlName = new String(this.name);
-        }
-        else if(this.name.contains(" ")){
+        if(this.name.contains(" ")){
             splitName = this.name.split(" ");
+            splitName[0] =splitName[0].replace("-", "");
             this.urlName = splitName[0] + "-" + splitName[1];
         }
         else{
@@ -167,12 +160,7 @@ public class NbaPlayer implements Player{
         return impact;
     }
 
-    public void setImpact(){
-        impact = Double.parseDouble(getAvgPoint())*pointsFactor +
-                 Double.parseDouble(getAvgAssist())*assistsFactor +
-                 Double.parseDouble(getAvgRebound())*reboundsFactor +
-                 Double.parseDouble(getAvgSteal())*stealsFactor +
-                 Double.parseDouble(getAvgBlock())*blocksFactor;
+    public void calculateImpact(){
+        this.impact = this.impactMatrix.countImpact(this);
     }
-
 }

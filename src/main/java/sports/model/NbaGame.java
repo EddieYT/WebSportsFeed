@@ -1,10 +1,8 @@
 package sports.model;
 
 /**
- * Created by obinnaasinugo on 4/29/17.
- */
-/**
  * A class to make a game object with information pertaining to each game (opponent, date, time, and location)
+ * Created by obinnaasinugo on 4/29/17.
  */
 public class NbaGame implements Game{
 
@@ -15,10 +13,10 @@ public class NbaGame implements Game{
 
     /**
      * Constructor for game object
-     * @param opponent
-     * @param date
-     * @param time
-     * @param location
+     * @param opponent the opponent's name
+     * @param date the date
+     * @param time the starting time of this match
+     * @param location the location of this match
      */
     public NbaGame(String opponent, String date, String time, String location) {
         this.opponent = new String(opponent);
@@ -28,29 +26,29 @@ public class NbaGame implements Game{
 
     }
     /**
-     * get opponent
-     * @return
+     * Gets opponent
+     * @return opponent's name
      */
     public String getOpponent() {
         return opponent;
     }
     /**
-     * get date
-     * @return
+     * Gets date
+     * @return the date of match
      */
     public String getDate() {
         return date;
     }
     /**
-     * get time
-     * @return
+     * Gets time
+     * @return the starting time of this game
      */
     public String getTime() {
         return time;
     }
     /**
-     * get location
-     * @return
+     * Gets location
+     * @return the location of this game
      */
     public String getLocation() {
         return location;

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The TeamController handles all request to and from the team page.
  * Created by obinnaasinugo on 4/27/17.
  */
 @Controller

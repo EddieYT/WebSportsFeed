@@ -11,7 +11,7 @@ import java.util.HashMap;
  * This class is responsible for evaluating data pertaining to
  * the overall standings, conference team standings, division
  * team standings, and playoff team standings.
- * @author ?
+ * @author Obi
  *
  */
 public class NbaStandings implements Standings{
@@ -56,6 +56,10 @@ public class NbaStandings implements Standings{
 		}
 	}
 
+    /**
+     * Get's the teamStats of the whole league
+     * @return a mapping from one kind of standing to relevant information
+     */
 	public HashMap<String, String[]> getteamStatsMap(){
 		return teamStatsMap;
 	}
@@ -86,7 +90,7 @@ public class NbaStandings implements Standings{
 
 	/**
 	 * This method will take in the rank of a team and return the team's info (name, record, etc.)
-	 * @param rank
+	 * @param rank the rank of a target team
 	 * @return team's info as an array
 	 */
 	public String[] getTeamInfo(int rank){

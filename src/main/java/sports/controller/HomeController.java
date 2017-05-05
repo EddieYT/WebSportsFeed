@@ -16,16 +16,31 @@ import java.util.ArrayList;
  */
 @Controller
 public class HomeController {
+
+    /**
+     * Maps the "/" URI to home page.
+     * @return home.html
+     */
     @RequestMapping("/")
     public String greeting() {
         return "home";
     }
 
+    /**
+     * Maps the "/home" URI to home page.
+     * @return home.html
+     */
     @RequestMapping("/home")
     public String displayHomePage() {
         return "home";
     }
 
+    /**
+     * Maps the "/player" URI to player page
+     * @param modelMap string to object mapping for template
+     * @return player2.html
+     * @throws IOException
+     */
     @RequestMapping("/player")
     public String showImplactPlayers(ModelMap modelMap) throws IOException {
         LeagueStats stats = new LeagueStats();
@@ -60,7 +75,6 @@ public class HomeController {
                 counter++;
             }
         }
-
         modelMap.put("impactPlayers", topPlayers);
         modelMap.put("iterations", temp);
         return  "player2";

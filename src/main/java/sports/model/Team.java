@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * This class stores all information pertaining to a team.
  * Created by obinnaasinugo on 4/27/17.
  */
 public class Team {
@@ -15,7 +16,10 @@ public class Team {
     private String topBlocker;
     private TeamStats teamStats;
 
-
+    /**
+     * Constructor
+     * @param name the team's name
+     */
     public Team(String name) {
         this.name = name;
         try {
@@ -25,10 +29,18 @@ public class Team {
         }
     }
 
+    /**
+     * Sets the name of the team.
+     * @param name
+     */
     public void setName(String name){
         this.name = name;
     }
 
+    /**
+     * Gets the name of the team.
+     * @return the name
+     */
     public String getName(){
         return name;
     }

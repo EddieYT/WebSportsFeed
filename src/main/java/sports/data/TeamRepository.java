@@ -8,6 +8,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 /**
+ * This class Stores all Teams as a collection for future use.
  * Created by obinnaasinugo on 4/27/17.
  */
 @Component
@@ -44,15 +45,24 @@ public class TeamRepository {
             new Team("Wizards")
     );
 
+    /**
+     * Search for a team by it's name in the repository.
+     * @param name the team's name
+     * @return the Team if found, otherwise null
+     */
     public Team findByName(String name) {
         for (Team team: ALL_TEAMS) {
-            if (team.getName().equals(name)) {
+            if (team.getName().equalsIgnoreCase(name)) {
                 return team;
             }
         }
         return null;
     }
 
+    /**
+     * Getter for the list of all teams
+     * @return a list of all teams
+     */
     public List<Team> getAllTeams() {
         return  ALL_TEAMS;
     }

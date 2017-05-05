@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * The ScheduleController can gather information for a specified team schedule request.
  * Created by obinnaasinugo on 4/29/17.
  */
 @Controller

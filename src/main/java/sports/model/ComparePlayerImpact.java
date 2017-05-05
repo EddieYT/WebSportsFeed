@@ -3,6 +3,7 @@ package sports.model;
 import java.util.Comparator;
 
 /**
+ * Comparator for player's impact.
  * Created by obinnaasinugo on 4/30/17.
  */
 public class ComparePlayerImpact implements Comparator<Object> {

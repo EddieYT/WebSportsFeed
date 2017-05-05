@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The SearchController handles all request from a search bar.
  * Created by Eddie on 4/30/17.
  */
 @Controller
@@ -82,30 +83,16 @@ public class SearchController {
         }
 
         if (player != null) {
-            player.setAvgAssist(PlayerStatsParser.getPLayerAstPerGame(player));
-            player.setAvgBlock(PlayerStatsParser.getPLayerBlkPerGame(player));
-            player.setAvgPoint(PlayerStatsParser.getPLayerPtsPerGame(player));
-            player.setAvgRebound(PlayerStatsParser.getPLayerRebPerGame(player));
-            player.setAvgSteal(PlayerStatsParser.getPLayerStlPerGame(player));
-            player.setHeight(PlayerStatsParser.getPlayerHeight(player));
-            player.setWeight(PlayerStatsParser.getPlayerWeight(player));
-            player.setPosition(PlayerStatsParser.getPlayerPosition(player));
-            player.setTeam(PlayerStatsParser.getPlayerTeam(player));
+            PlayerStatsParser.setAllPlayerInfo(player);
             modelMap.put("player", player);
+            modelMap.put("parser", PlayerStatsParser.getTimeStamp());
             return "player-details";
         } else {
             player = new NbaPlayer(name);
             try {
-                player.setAvgAssist(PlayerStatsParser.getPLayerAstPerGame(player));
-                player.setAvgBlock(PlayerStatsParser.getPLayerBlkPerGame(player));
-                player.setAvgPoint(PlayerStatsParser.getPLayerPtsPerGame(player));
-                player.setAvgRebound(PlayerStatsParser.getPLayerRebPerGame(player));
-                player.setAvgSteal(PlayerStatsParser.getPLayerStlPerGame(player));
-                player.setHeight(PlayerStatsParser.getPlayerHeight(player));
-                player.setWeight(PlayerStatsParser.getPlayerWeight(player));
-                player.setPosition(PlayerStatsParser.getPlayerPosition(player));
-                player.setTeam(PlayerStatsParser.getPlayerTeam(player));
+                PlayerStatsParser.setAllPlayerInfo(player);
                 modelMap.put("player", player);
+                modelMap.put("parser", PlayerStatsParser.getTimeStamp());
                 return "player-details";
             } catch (Exception e) {
                 return "home";

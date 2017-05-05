@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * This is the configuration file for running the server.
+ * This is the configuration file and main method for running the server.
  * Created by Eddie on 4/16/17.
  */
 @SpringBootApplication

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * The StandingsController handles all request for the league standings.
  * Created by obinnaasinugo on 4/29/17.
  */
 @Controller

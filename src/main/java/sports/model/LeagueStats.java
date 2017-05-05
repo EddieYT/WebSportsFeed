@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
+ * This class generates all statistics for all players.
  * Created by obinnaasinugo on 4/30/17.
  */
 public class LeagueStats {
@@ -17,6 +18,10 @@ public class LeagueStats {
     private ArrayList<String> lines;
     private PriorityQueue<NbaPlayer> playerStats;
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public LeagueStats() throws IOException {
         dl = new FileDownloader("src/main/resources/");
         dl.cumulativePlayers();
@@ -42,7 +47,7 @@ public class LeagueStats {
             if(str.length == 82) {
                 String team = str[16] + " " + str[17];
                 String name = str[3] + " " + str[2];
-                player = new NbaPlayer(name, team);
+                player = new NbaPlayer(name, team, new OurImpactMatrix(10, 7, 5, 2, 2));
                 player.setAvgPoint(str[48]);
                 player.setAvgAssist(str[46]);
                 player.setAvgRebound(str[44]);
@@ -52,7 +57,7 @@ public class LeagueStats {
             else{
                 String team = str[15] + " " + str[16];
                 String name = str[3] + " " + str[2];
-                player = new NbaPlayer(name, team);
+                player = new NbaPlayer(name, team, new OurImpactMatrix(10, 7, 5, 2, 2));
                 player.setAvgPoint(str[47]);
                 player.setAvgAssist(str[45]);
                 player.setAvgRebound(str[43]);
@@ -63,12 +68,16 @@ public class LeagueStats {
 
 
             // calculate player impact metric
-            player.setImpact();
+            player.calculateImpact();
 
             playerStats.add(player);
         }
     }
 
+    /**
+     * Gets an array with all players and their stats.
+     * @return an array of NbaPlayer
+     */
     public NbaPlayer[] getAllPlayerStats(){
         return playerStats.toArray(new NbaPlayer[playerStats.size()]);
     }

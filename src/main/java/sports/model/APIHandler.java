@@ -11,6 +11,7 @@ import java.net.URL;
 
 
 /**
+ * API Handler makes a request to the API and gets a JSON string.
  * Created by Eddie on 4/27/17.
  */
 public class APIHandler {
